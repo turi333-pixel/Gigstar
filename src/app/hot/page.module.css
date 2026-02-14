@@ -1,0 +1,61 @@
+.container {
+    padding: var(--space-md);
+}
+
+.header {
+    margin-bottom: var(--space-lg);
+}
+
+.title {
+    font-family: var(--font-display);
+    font-size: 1.8rem;
+    font-weight: 800;
+    margin-bottom: var(--space-xs);
+}
+
+.subtitle {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.category {
+    margin-bottom: var(--space-xl);
+}
+
+.categoryHeader {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-md);
+}
+
+.categoryTitle {
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    font-weight: 700;
+}
+
+.categoryEmoji {
+    font-size: 1.2rem;
+}
+
+.eventsGrid {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+}
+
+.countdown {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 2px 8px;
+    border-radius: var(--radius-full);
+    background: rgba(255, 45, 120, 0.15);
+    border: 1px solid rgba(255, 45, 120, 0.25);
+    color: var(--accent-magenta);
+    font-size: 0.7rem;
+    font-weight: 700;
+    font-family: var(--font-display);
+    animation: pulse-glow 2s ease-in-out infinite;
+}

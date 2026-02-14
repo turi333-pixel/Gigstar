@@ -1,0 +1,52 @@
+.container {
+    display: flex;
+    gap: var(--space-sm);
+    overflow-x: auto;
+    padding: var(--space-xs) 0;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    -webkit-overflow-scrolling: touch;
+}
+
+.container::-webkit-scrollbar {
+    display: none;
+}
+
+.chip {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    border-radius: var(--radius-full);
+    font-size: 0.8rem;
+    font-weight: 600;
+    font-family: var(--font-display);
+    white-space: nowrap;
+    cursor: pointer;
+    transition: all var(--transition-base);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: var(--bg-glass-light);
+    color: var(--text-secondary);
+    -webkit-tap-highlight-color: transparent;
+}
+
+.chip:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.15);
+}
+
+.chip:active {
+    transform: scale(0.95);
+}
+
+.chip.active {
+    background: var(--gradient-hot);
+    border-color: transparent;
+    color: white;
+    box-shadow: 0 2px 12px rgba(255, 45, 120, 0.3);
+}
+
+.emoji {
+    font-size: 1rem;
+    line-height: 1;
+}

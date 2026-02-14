@@ -1,0 +1,215 @@
+.card {
+    position: relative;
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    background: var(--bg-card);
+    cursor: pointer;
+    transition: transform var(--transition-smooth);
+    -webkit-tap-highlight-color: transparent;
+}
+
+.card:active {
+    transform: scale(0.98);
+}
+
+.cardLarge {
+    height: 380px;
+}
+
+.cardMedium {
+    height: 280px;
+}
+
+.cardSmall {
+    height: 220px;
+    min-width: 200px;
+}
+
+.imageContainer {
+    position: absolute;
+    inset: 0;
+    background: var(--bg-tertiary);
+}
+
+.image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.card:hover .image {
+    transform: scale(1.05);
+}
+
+.placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
+    background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
+}
+
+.overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg,
+            transparent 0%,
+            transparent 30%,
+            rgba(10, 10, 15, 0.6) 60%,
+            rgba(10, 10, 15, 0.95) 100%);
+    z-index: 1;
+}
+
+.content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: var(--space-md);
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+}
+
+.badges {
+    display: flex;
+    gap: var(--space-xs);
+    flex-wrap: wrap;
+    margin-bottom: var(--space-xs);
+}
+
+.name {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1.2rem;
+    line-height: 1.2;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.cardSmall .name {
+    font-size: 1rem;
+}
+
+.meta {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.venue {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.dateTime {
+    font-size: 0.75rem;
+    color: var(--accent-cyan);
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+}
+
+.price {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--accent-green);
+}
+
+.topBadges {
+    position: absolute;
+    top: var(--space-md);
+    left: var(--space-md);
+    right: var(--space-md);
+    display: flex;
+    justify-content: space-between;
+    z-index: 3;
+}
+
+.favButton {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 1rem;
+    transition: all var(--transition-base);
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.favButton:hover {
+    background: rgba(255, 45, 120, 0.3);
+    border-color: var(--accent-magenta);
+}
+
+.favButton.active {
+    background: rgba(255, 45, 120, 0.4);
+    border-color: var(--accent-magenta);
+}
+
+/* Genre-specific accent strips */
+.accentStrip {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    z-index: 3;
+}
+
+.accentStrip.rock {
+    background: var(--gradient-hot);
+}
+
+.accentStrip.metal {
+    background: linear-gradient(90deg, #6b21a8, #dc2626);
+}
+
+.accentStrip.pop {
+    background: linear-gradient(90deg, #ec4899, #f59e0b);
+}
+
+.accentStrip.electronic,
+.accentStrip.techno {
+    background: var(--gradient-cool);
+}
+
+.accentStrip.jazz {
+    background: linear-gradient(90deg, #f59e0b, #8b5cf6);
+}
+
+.accentStrip.indie {
+    background: linear-gradient(90deg, #6366f1, #ec4899);
+}
+
+.accentStrip.hiphop {
+    background: linear-gradient(90deg, #f59e0b, #ef4444);
+}
+
+.accentStrip.classical {
+    background: linear-gradient(90deg, #a78bfa, #e2e8f0);
+}
+
+.accentStrip.folk,
+.accentStrip.country {
+    background: linear-gradient(90deg, #d97706, #65a30d);
+}
+
+.accentStrip.latin {
+    background: linear-gradient(90deg, #ef4444, #f59e0b);
+}
