@@ -19,9 +19,9 @@ ENV NEXT_TELEMETRY_DISABLED 1
 
 # Add API Key for build time so Client Components can access it
 # (This is a public consumer key, safe to include for build)
-ENV NEXT_PUBLIC_TM_API_KEY=HBgRdVjc5JAEZfsGIBjLiLSAYfZOzfpy
+ENV NEXT_PUBLIC_TM_API_KEY=HBgRdVjc5JAEZfsGIBjLILSAYfZOzfpy
 ENV NEXT_PUBLIC_APP_NAME=Gigster
-ENV TICKETMASTER_API_KEY=HBgRdVjc5JAEZfsGIBjLiLSAYfZOzfpy
+ENV TICKETMASTER_API_KEY=HBgRdVjc5JAEZfsGIBjLILSAYfZOzfpy
 
 RUN npm run build
 
@@ -31,7 +31,7 @@ WORKDIR /app
 
 ENV NODE_ENV production
 ENV NEXT_TELEMETRY_DISABLED 1
-ENV TICKETMASTER_API_KEY=HBgRdVjc5JAEZfsGIBjLiLSAYfZOzfpy
+ENV TICKETMASTER_API_KEY=HBgRdVjc5JAEZfsGIBjLILSAYfZOzfpy
 
 RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nextjs
