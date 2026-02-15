@@ -88,7 +88,6 @@ export async function GET(request) {
     params.set('locale', '*');
 
     // Location: prefer lat/long (GPS), then city name
-    // Location: prefer lat/long (GPS), then city name
     if (latlong && latlong !== 'undefined' && latlong !== 'null') {
         params.set('latlong', latlong);
         params.set('radius', '50');
@@ -116,17 +115,28 @@ export async function GET(request) {
         params.set('keyword', keyword);
     }
 
+    const url = `${TM_BASE}/events.json?${params.toString()}`;
+    console.log(`Server: Fetching ${url.replace(apiKey, 'HIDDEN_KEY')}`);
+
     try {
-        const res = await fetch(`${TM_BASE}/events.json?${params.toString()}`);
-        const data = await res.json();
+        const res = await fetch(url);
+        const text = await res.text();
+        console.log(`Server: TM Response Status: ${res.status}`);
+        console.log(`Server: TM Response Body: ${text.substring(0, 500)}`);
+
+        let data;
+        try {
+            data = JSON.parse(text);
+        } catch (e) {
+            console.error('Server: Failed to parse JSON', e);
+            throw new Error('Invalid JSON response from Ticketmaster');
+        }
 
         if (!res.ok) {
-            console.error('Ticketmaster API error:', data);
+            console.error('Server: TM Error', data);
             return NextResponse.json({
-                events: [],
-                totalElements: 0,
-                error: data?.fault?.faultstring || 'API error — check your key',
-            });
+                error: data?.fault?.faultstring || data?.errors?.[0]?.detail || 'Invalid ApiKey'
+            }, { status: res.status });
         }
 
         const events = (data._embedded?.events || []).map(normalizeTMEvent);
