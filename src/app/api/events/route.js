@@ -124,7 +124,12 @@ export async function GET(request) {
     console.log(`Server: Fetching ${url.replace(apiKey, 'HIDDEN_KEY')}`);
 
     try {
-        const res = await fetch(url);
+        const res = await fetch(url, {
+            headers: {
+                'User-Agent': 'Gigster-App/1.0',
+                'Accept': 'application/json',
+            }
+        });
         const text = await res.text();
         console.log(`Server: TM Response Status: ${res.status}`);
         console.log(`Server: TM Response Body: ${text.substring(0, 500)}`);
