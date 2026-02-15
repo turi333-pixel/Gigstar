@@ -17,6 +17,11 @@ COPY . .
 # Uncomment the following line in case you want to disable telemetry during the build.
 ENV NEXT_TELEMETRY_DISABLED 1
 
+# Add API Key for build time so Client Components can access it
+# (This is a public consumer key, safe to include for build)
+ENV NEXT_PUBLIC_TM_API_KEY=HBgRdVjc5JAEZfsGIBjLiLSAYfZOzfpy
+ENV NEXT_PUBLIC_APP_NAME=Gigster
+
 RUN npm run build
 
 # Production image, copy all the files and run next
