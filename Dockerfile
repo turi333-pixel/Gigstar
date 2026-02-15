@@ -21,6 +21,7 @@ ENV NEXT_TELEMETRY_DISABLED 1
 # (This is a public consumer key, safe to include for build)
 ENV NEXT_PUBLIC_TM_API_KEY=HBgRdVjc5JAEZfsGIBjLiLSAYfZOzfpy
 ENV NEXT_PUBLIC_APP_NAME=Gigster
+ENV TICKETMASTER_API_KEY=HBgRdVjc5JAEZfsGIBjLiLSAYfZOzfpy
 
 RUN npm run build
 

@@ -85,11 +85,12 @@ export async function GET(request) {
     params.set('locale', '*');
 
     // Location: prefer lat/long (GPS), then city name
-    if (latlong) {
+    // Location: prefer lat/long (GPS), then city name
+    if (latlong && latlong !== 'undefined' && latlong !== 'null') {
         params.set('latlong', latlong);
         params.set('radius', '50');
         params.set('unit', 'km');
-    } else if (city) {
+    } else if (city && city !== 'undefined' && city !== 'null') {
         params.set('city', city);
     }
 
