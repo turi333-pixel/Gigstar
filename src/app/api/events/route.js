@@ -67,6 +67,7 @@ export async function GET(request) {
 
     // Must have a valid API key
     if (!apiKey || apiKey === 'YOUR_API_KEY_HERE') {
+        console.error('Server: No API key found in environment variables');
         return NextResponse.json({
             events: [],
             totalElements: 0,
@@ -74,6 +75,8 @@ export async function GET(request) {
             error: 'No API key configured. Get your free key at https://developer-acct.ticketmaster.com/user/register and add it to .env.local as TICKETMASTER_API_KEY',
         });
     }
+
+    console.log(`Server: Using API Key starting with ${apiKey.substring(0, 5)}...`);
 
     // ─── Build Ticketmaster query ───
     const params = new URLSearchParams();
