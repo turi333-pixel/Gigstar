@@ -56,7 +56,10 @@ function normalizeTMEvent(event) {
 
 export async function GET(request) {
     const { searchParams } = new URL(request.url);
-    const apiKey = process.env.TICKETMASTER_API_KEY;
+    let apiKey = process.env.TICKETMASTER_API_KEY;
+
+    // Clean the key
+    if (apiKey) apiKey = apiKey.trim();
 
     const city = searchParams.get('city');
     const genre = searchParams.get('genre');
@@ -76,6 +79,8 @@ export async function GET(request) {
         });
     }
 
+    console.log(`Server: API Key Length: ${apiKey.length}`);
+    console.log(`Server: API Key (JSON): ${JSON.stringify(apiKey.substring(0, 5) + '...' + apiKey.substring(apiKey.length - 5))}`);
     console.log(`Server: Using API Key starting with ${apiKey.substring(0, 5)}...`);
 
     // ─── Build Ticketmaster query ───
